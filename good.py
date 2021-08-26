@@ -36,14 +36,24 @@ def show():
     c = con.cursor()
     c.execute('SELECT *, oid FROM links')
     records = c.fetchall()
+    display = Toplevel()
+    display.title('Data')
+    display.geometry('500x300')
+
     print(records)
     print_records = ''
     for record in records:
-        print_records += str(record[0]) + ' ' + '\t' + str(record[1]) + '\n'
-    lab = Label(root, text=print_records, font="Helvetica 10", bg='steel blue4')
-    lab.place(x=0, y=530)
-    con.commit()
-    con.close()
+        print_records += 'Link' + '\n' + str(record[0]) + '\n'
+    lab = Label(display, text=print_records, font=('cambria', 10))
+    lab.grid(row=2, column=1)
+
+    print_records2 = ''
+    for record1 in records:
+        print_records2 += 'Path' + '\n' + str(record1[1]) + '\n'
+    lab = Label(display, text=print_records2, font=('cambria', 10))
+    lab.grid(row=2, column=2)
+    but = Button(display, text="Close", font=('cambria', 10), command=display.destroy)
+    but.grid(row=5, column=1)
 
 
 # Delete function to delete the data
