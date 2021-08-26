@@ -194,10 +194,11 @@ def query():
     print(rec)
     top = Toplevel()
     top.title("Records")
+    top.iconbitmap("fb1.ico")
     # loop through the results
     print_rec = ""
     for record in rec:
-        print_rec += str(record[2]) + ' ' + str(record[4]) + ' ' + '\t' + str(record[5]) + "\n"
+        print_rec += ("Username:")+' '+str(record[2]) + '     ' + "Video Link:"+' '+str(record[4]) + '    ' + '\t' + str(record[5]) + "\n"
     query_label = Label(top, text=print_rec)
     query_label.pack()
     Button(top, text="Close", command=top.destroy).pack()
