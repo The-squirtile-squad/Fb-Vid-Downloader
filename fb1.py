@@ -107,7 +107,7 @@ def new():
                 for data in file_size_request.iter_content(block_size):
                     f.write(data)
 
-            messagebox.showinfo("HD: Downloaded", "Successfully downloade in " + str(path))
+            messagebox.showinfo("HD: Downloaded", "Successfully downloaded in " + str(path))
             print("DOWNLOADED")
 
         elif var.get()==2:
@@ -118,11 +118,12 @@ def new():
             block_size = 1024
             filename = datetime.strftime(datetime.now(), '%Y-%m-%d-%H-%M-%S')
             path = down_path.get()
+            # Used write mode in file handling to download the video
             with open(os.path.join(path, filename) + '.mp4', 'wb') as f:
                 for data in file_size_request.iter_content(block_size):
                     f.write(data)
 
-            messagebox.showinfo("HD: Downloaded", "Successfully downloade in " + str(path))
+            messagebox.showinfo("HD: Downloaded", "Successfully downloaded in " + str(path))
             print("DOWNLOADED")
 
     # creating labels
@@ -352,25 +353,31 @@ dlt_lab.place(x=20, y=307)
 add_btn = Button(root, text="Add info", font=("Comic Sans MS", 10,"bold","italic"),bg="#50CB93", width=38,borderwidth=3, command=submit)
 add_btn.place(x=85, y=230)
 
+
 # creating query button
 query_btn = Button(root, text="Show info", font=("Comic Sans MS", 10,"bold","italic"),bg="#FFBCBC",borderwidth=3, width=38, command=query)
 query_btn.place(x=85, y=268)
+
 
 # creating delete button
 dlt_btn = Button(root, text="Delete", font=("Comic Sans MS", 10,"bold","italic"),bg="khaki1",borderwidth=3, width=38, command=delete)
 dlt_btn.place(x=85, y=340)
 
+
 # creating update button
 upd_btn = Button(root, text="Update", font=("Comic Sans MS", 10,"bold","italic"),bg="#BEAEE2",borderwidth=3,width=38, command=edit)
 upd_btn.place(x=85, y=377)
+
 
 # creating window destroy button
 close=Button(root,text="Close",font=("Comic Sans MS", 10,"bold","italic"),bg="OliveDrab2",borderwidth=3,width=25,command=root.destroy)
 close.place(x=20,y=413)
 
+
 # creating next window button
 next_btn=Button(root,text="Next",font=("Comic Sans MS", 10,"bold","italic"),bg="OliveDrab2",borderwidth=3,width=26,command=new)
 next_btn.place(x=235,y=413)
+
 
 # commit change
 conn.commit()
