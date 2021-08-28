@@ -12,15 +12,15 @@ import os
 root = Tk()
 root.title("Facebook Video Downloader")
 root.iconbitmap("fb2.ico")
-# root.attributes('-alpha', 0.90)
+root.attributes('-alpha', 0.90)
 
 # setting the maximum and minimum size of the window
-root.maxsize(width=1000, height=600)
-root.minsize(width=1000, height=600)
+root.maxsize(width=950, height=600)
+root.minsize(width=950, height=600)
 
 # adding image in the background
 img = Image.open("back.jpg")
-img = img.resize((1000, 600), Image.ANTIALIAS)
+img = img.resize((950, 600), Image.ANTIALIAS)
 photo = ImageTk.PhotoImage(img)
 lab = Label(root, image=photo)
 lab.pack()
@@ -260,8 +260,8 @@ browse.place(x=160, y=240)
 
 # Creating a radio button
 var = IntVar()
-Radiobutton(root, text="HD", variable=var, font=("Helvetica", 15, "bold"), bg="light cyan", fg='black', value=1, width=10, borderwidth=3).place(x=160, y=290)
-Radiobutton(root, text="SD", variable=var, font=("Helvetica", 15, "bold"), bg="light cyan", fg='black', value=2, width=10, borderwidth=3).place(x=360, y=290)
+Radiobutton(root, text="HD", variable=var, font=("Helvetica", 15, "bold"), bg="royal blue", fg='black', value=1, width=10, borderwidth=3).place(x=160, y=290)
+Radiobutton(root, text="SD", variable=var, font=("Helvetica", 15, "bold"), bg="royal blue", fg='black', value=2, width=10, borderwidth=3).place(x=360, y=290)
 
 lab2 = Label(root, text="Resolution : ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue3", width=10, borderwidth=3)
 lab2.place(x=10, y=290)
