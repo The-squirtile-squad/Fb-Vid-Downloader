@@ -76,8 +76,8 @@ def download():
     hd = re.search('hd_src:"https', html)
     sd = re.search('sd_src:"https', html)
     empty = []
-    empty = [hd, sd]
-    for id, val in enumerate(empty):
+    quality = [hd, sd]
+    for id, val in enumerate(quality):
         if val != None:
             empty.append(id)
     print(empty)

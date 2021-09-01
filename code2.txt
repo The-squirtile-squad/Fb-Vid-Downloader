@@ -19,7 +19,7 @@ root.maxsize(width=1000, height=600)
 root.minsize(width=1000, height=600)
 
 # adding image in the background
-img = Image.open("fbwp2.jpg")
+img = Image.open("back.jpg")
 img = img.resize((1000, 600), Image.ANTIALIAS)
 photo = ImageTk.PhotoImage(img)
 lab = Label(root, image=photo)
@@ -76,8 +76,8 @@ def download():
     hd = re.search('hd_src:"https', html)
     sd = re.search('sd_src:"https', html)
     empty = []
-    quality = [hd, sd]
-    for id, val in enumerate(quality):
+    theempty = [hd, sd]
+    for id, val in enumerate(theempty):
         if val != None:
             empty.append(id)
     print(empty)
@@ -201,20 +201,20 @@ def edit():
     global f_editor
     global l_editor
 
-    label_1 = Label(editor, text="Update", bg="crimson", fg="light cyan", width=29, font=("Comic Sans MS", 20))
+    label_1 = Label(editor, text="Update", bg="crimson", fg="black", width=29, font=("Comic Sans MS", 20))
     label_1.place(x=14, y=20)
 
-    # Creating text boxes
-    f_editor = Entry(editor, width=40, font='Helvetica 15', bg="LightCyan2", borderwidth=3)
+    # creating text boxes
+    f_editor = Entry(editor, width=40, font=("Comic Sans MS", 11, "bold", "italic"), bg="LightCyan2", borderwidth=3)
     f_editor.place(x=125, y=95)
-    l_editor = Entry(editor, width=40, font='Helvetica 15', bg="LightCyan2", borderwidth=3)
+    l_editor = Entry(editor, width=40, font=("Comic Sans MS", 11, "bold", "italic"), bg="LightCyan2", borderwidth=3)
     l_editor.place(x=125, y=150)
 
-    # Creating textbox labels
-    f_lab = Label(editor, text="Video Link :", font='Helvetica 15', bg="PeachPuff2", width=11,
+    # creating textbox labels
+    f_lab = Label(editor, text="Video Link :", font=("Comic Sans MS", 11, "bold"), bg="PeachPuff2", width=11,
                   borderwidth=3)
     f_lab.place(x=10, y=94)
-    l_lab = Label(editor, text="Browse path :", font='Helvetica 15', bg="PeachPuff2", width=11,
+    l_lab = Label(editor, text="Browse path :", font=("Comic Sans MS", 11, "bold"), bg="PeachPuff2", width=11,
                   borderwidth=3)
     l_lab.place(x=10, y=149)
 
@@ -222,7 +222,7 @@ def edit():
         f_editor.insert(0, record[0])
         l_editor.insert(0, record[1])
 
-    # Creating a save button
+    # creating a save button
     edit_btn = Button(editor, text="SAVE", font=("Comic Sans MS", 10, "bold"), width=59, command=update)
     edit_btn.place(x=10, y=200)
 
@@ -244,14 +244,14 @@ lab1.place(x=160, y=160)
 input = StringVar()
 input1 = Entry(root, textvariable=input, width=35, font='Helvetica 15', bg="light cyan", relief='flat')
 input1.place(x=160, y=125)
-vid = Label(root, text="Video URL ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue2", width=10)
+vid = Label(root, text="Video URL :", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue2", width=10)
 vid.place(x=10, y=125)
 
 # Download path variable
 down_path = StringVar()
 input2 = Entry(root, textvariable=down_path, width=35, font='Helvetica 15', bg="LightCyan2", relief='flat')
 input2.place(x=160, y=200)
-path = Label(root, text="Browse Path ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue3", width=12)
+path = Label(root, text="Browse Path : ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue3", width=12)
 path.place(x=10, y=200)
 
 # Creating browse button
@@ -260,15 +260,15 @@ browse.place(x=160, y=240)
 
 # Creating a radio button
 var = IntVar()
-Radiobutton(root, text="HD", variable=var, font=("Helvetica", 15, "bold"), bg="royal blue", value=1, width=10, borderwidth=3).place(x=180, y=290)
-Radiobutton(root, text="SD", variable=var, font=("Helvetica", 15, "bold"), bg="royal blue", value=2, width=10, borderwidth=3).place(x=380, y=290)
+Radiobutton(root, text="HD", variable=var, font=("Helvetica", 15, "bold"), bg="light cyan", fg='black', value=1, width=10, borderwidth=3).place(x=160, y=290)
+Radiobutton(root, text="SD", variable=var, font=("Helvetica", 15, "bold"), bg="light cyan", fg='black', value=2, width=10, borderwidth=3).place(x=360, y=290)
 
-lab2 = Label(root, text="Resolution ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue3", width=10, borderwidth=3)
+lab2 = Label(root, text="Resolution : ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue3", width=10, borderwidth=3)
 lab2.place(x=10, y=290)
 
 # Creating a download button
 btn1 = Button(root, text="Download", width=35, bg="royal blue4", fg='light cyan', font='Helvetica 15', command=download)
-btn1.place(x=160, y=335)
+btn1.place(x=160, y=340)
 
 # Creating query button
 query_btn = Button(root, text="Show info", width=35, font='Helvetica 15', bg="royal blue2", fg='light cyan', command=query)
@@ -277,7 +277,7 @@ query_btn.place(x=160, y=390)
 # Creating a delete label
 dlt = Entry(root, width=35, font='Helvetica 15', bg="LightCyan2", fg="black", relief='flat')
 dlt.place(x=160, y=445)
-dlt_lab = Label(root, text="Delete ID ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue3", width=10)
+dlt_lab = Label(root, text="Delete ID : ", font=('Helvetica', 15, 'bold'), bg="black", fg="deep sky blue3", width=10)
 dlt_lab.place(x=10, y=445)
 
 # Creating delete button
