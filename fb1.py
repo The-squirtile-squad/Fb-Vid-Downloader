@@ -8,7 +8,6 @@ import re
 from datetime import datetime
 import os
 
-
 # creating a window
 root = Tk()
 root.title("Facebook Video Downloader")
@@ -377,7 +376,6 @@ close.place(x=20,y=413)
 # creating next window button
 next_btn=Button(root,text="Next",font=("Comic Sans MS", 10,"bold","italic"),bg="OliveDrab2",borderwidth=3,width=26,command=new)
 next_btn.place(x=235,y=413)
-
 
 # commit change
 conn.commit()
