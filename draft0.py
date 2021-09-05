@@ -12,7 +12,7 @@ import os
 h = Tk()
 h.title("Facebook Video Downloader")
 h.iconbitmap("fb1.ico")
-h.attributes('-alpha', 0.90)
+# h.attributes('-alpha', 0.90)
 
 # Setting the maximum and minimum size of the window
 h.maxsize(width=500, height=280)
@@ -251,6 +251,7 @@ def new():
         rec = c.fetchall()
         print(rec)
         top = Toplevel()
+        top.configure(bg='royal blue3')
         top.title("Records")
         top.iconbitmap("fb.ico")
         # Loop through the results
@@ -259,7 +260,7 @@ def new():
             print_rec += "video link:" + ' ' + str(record[0]) + '     ' + "browse path:" + '  ' + str(
                 record[1]) + '    ' + '\t' + str(record[2]) + "\n"
 
-        query_label = Label(top, text=print_rec)
+        query_label = Label(top, text=print_rec,  font=("cambria", 12, "bold"), bg="royal blue3", fg="white")
         query_label.pack()
         Button(top, text="Close", command=top.destroy).pack()
         conn.commit()
