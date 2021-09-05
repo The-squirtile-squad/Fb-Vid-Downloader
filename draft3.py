@@ -122,23 +122,36 @@ def download():
 
 # Creating query function for database
 def query():
+    global image_1
+    global photo_1
     conn = sqlite3.connect('inform.db')
     c = conn.cursor()
     c.execute("SELECT *, oid FROM data")
     rec = c.fetchall()
     print(rec)
+
     top = Toplevel()
-    top.title("Records")
+    # top.geometry('700x500')
+    top.configure(bg='royal blue3')
+    # top.resizable(0, 0)
+    top.title("Download Records")
     top.iconbitmap("fb.ico")
 
     # loop through the results
+    # image_1 = Image.open("fbwp1.jpg")
+    # image_1 = image_1.resize((700, 500), Image.ANTIALIAS)
+    # photo_1 = ImageTk.PhotoImage(image_1)
+    # lab = Label(top, image=photo_1)
+    # lab.pack()
+
     print_rec = ""
     for record in rec:
         print_rec += "Video link:" + ' ' + str(record[0]) + '     ' + "Browse path:" + '  ' + str(
             record[1]) + '    ' + '\t' + str(record[2]) + "\n"
-    query_label = Label(top, text=print_rec)
+    query_label = Label(top, text=print_rec, font=("cambria", 12, "bold"), bg="royal blue3", fg="white")
     query_label.pack()
     Button(top, text="Close", command=top.destroy).pack()
+
     conn.commit()
     conn.close()
 
