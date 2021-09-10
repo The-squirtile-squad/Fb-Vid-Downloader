@@ -1,11 +1,12 @@
 import pytest
 import draft0
+import re
 
 
 # Testing for Link
 def check_link(link):
-    link_1 = draft0.new.download(r'^(https:|)[/][/]www.([^/]+[.])*facebook.com')
-    return draft0.search(link_1, link)
+    link_1 = re.compile(r'^(https:|)[/][/]www.([^/]+[.])*facebook.com')
+    return re.search(link_1, link)
 
 
 assert check_link(r'https://www.youtube.com/watch?v=dAHSJfWrENc')
