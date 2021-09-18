@@ -26,8 +26,11 @@ photo = ImageTk.PhotoImage(img)
 lab = Label(h, image=photo)
 lab.pack()
 
+global root
 
 def tes():
+    global root
+
     conn = sqlite3.connect('registrations.db')
     c = conn.cursor()
     c.execute("SELECT *, oid FROM register")
@@ -41,12 +44,18 @@ def tes():
         messagebox.showinfo("Login","Correct username and password")
     elif x != dat and y != dat1:
         messagebox.showerror("Error","Username and Password invalid!!!")
+        root.destroy()
+
+
+
 
     # clear the text boxes
     f.delete(0,END)
     l.delete(0,END)
 
+
 def regis():
+    global root
     main = Toplevel()
     main.title("Registration")
     main.iconbitmap("fb2.ico")
@@ -89,6 +98,7 @@ def regis():
         messagebox.showinfo("Login Info", "REGISTERED SUCCESSFULLY")
         conn.commit()
         conn.close()
+
 
         # clear the text boxes
         f.delete(0, END)
@@ -138,6 +148,7 @@ def regis():
 
 def new():
     global root
+
     # creating a window
     root = Toplevel()
     root.title("Facebook Video Downloader")
@@ -448,12 +459,6 @@ lab_0=Label(h,text="OR", font=("Comic Sans MS", 12, "bold"),bg="black",fg="royal
 
 # creating a signup button
 bu1=Button(h,text="Sign-up",width=20,font=("Comic Sans MS", 10,"bold","italic"),command=regis).place(x=170,y=225)
-
-
-
-
-
-
 
 
 h.mainloop()
