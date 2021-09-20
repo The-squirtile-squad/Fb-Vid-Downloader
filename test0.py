@@ -21,12 +21,30 @@ def tes(username, password):
         messagebox.showinfo("Error", 'Invalid username and password')
         return False
 
+#
+# def check_credentials(username: str, password: str) -> bool:
+#     conn = sqlite3.connect('registrations.db')
+#     c = conn.cursor()
+#     c.execute("SELECT *, oid FROM register")
+#     rec_credentials = {record[2]: record[3] for record in c.fetchall()}
+#     conn.close()
+#
+#     if username in rec_credentials.keys() and rec_credentials[username] == password:
+#         messagebox.showinfo("Login", "Correct username and password")
+#         correct = True
+#     else:
+#         messagebox.showerror("Error", "Username and Password invalid")
+#         correct = False
+#
+#     return correct
+#
+# assert tes('oopsie', '30090')
+# assert tes('Hi', '1234')
+# assert tes('', '')
+# assert tes('invalid_username', 'invalid_password')
 
-assert tes('oopsie', '30090')
-assert tes('Hi', '1234')
-assert tes('', '')
-assert tes('invalid_username', 'invalid_password')
-
+h/7VOkuVaols/':
+    #     raise Exception('Error')
 
 
 

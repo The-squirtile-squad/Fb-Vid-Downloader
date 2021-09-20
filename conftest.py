@@ -1,5 +1,4 @@
 import pytest
-import draft0
 
 
 @pytest.fixture
@@ -20,6 +19,12 @@ def input_value3():
     return input
 
 
+@pytest.mark.skipif("input_value3 == 'https://fb.watch/7VOkuVaols/'")
+def test_link(input_value3):
+    if input_value3 != 'https://fb.watch/7VOkuVaols/':
+        raise Exception('Error')
+
+
 @pytest.fixture
 def input_value4():
     input = 'C:/Videos/downloader project'
@@ -37,16 +42,16 @@ def test_tes(input_value1):
 
 
 def test_tes1(input_value2):
-    assert input_value2 == 30090
+    assert input_value2 == 300901
 
 
-def test_tes2(input_value3):
-   assert input_value3 == 'https://fb.watch/7VOkuVaols/'
+# def test_tes2(input_value3):
+#     assert input_value3 == 'https://fb.watch/7VOkuVaols/'
 
 
 def test_tes3(input_value4):
-   assert input_value4 == 'C:/Videos/downloader project'
+    assert input_value4 == 'C:/Videos/downloader project 1'
 
 
 def test_tes4(input_value5):
-   assert input_value5 == 'Rahul'
+    assert input_value5 == 'Rahul'
