@@ -55,11 +55,6 @@ def validate_input(uname: str, email: str, password: str) -> bool:
         messagebox.showerror("Error", "Username is taken")
         return False
 
-    re_passwd = re.compile(r".*(?=.{8,})(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*[0-9].*)(?=.*[!@#$%^&*()_+-=[\]\{}|;:'\"]).*")
-    if not re.search(re_passwd, password):
-        messagebox.showerror("Error",
-                             "Password should be atleast 8 characters long and should have atleast:\n- 1 lowercase character\n- 1 uppercase character \n-1 number\n- 1 special character")
-        return False
 
     re_email = re.compile(r".*@.*\..{2,5}")
     if not re.search(re_email, email):
@@ -266,9 +261,7 @@ def new():
         # Loop through the results
         print_rec = ""
         for record in rec:
-            print_rec += "video link:" + ' ' + str(record[0]) + '     ' + "browse path:" + '  ' + str(
-                record[1]) + '    ' + '\t' + str(record[2]) + "\n"
-
+            print_rec += "video link:" + ' ' + "\n"+ str(record[0]) + ' ' +"\n"+  "browse path:" + ' ' + str(record[1]) + ' ' + '\t' + str(record[2]) + "\n"
         query_label = Label(top, text=print_rec, font=("cambria", 12, "bold"), bg="royal blue3", fg="white")
         query_label.pack()
         Button(top, text="Close", command=top.destroy).pack()
@@ -289,7 +282,7 @@ def new():
         # Loop through the results
         print_rec = ""
         for record in rec:
-            print_rec += str(record[0]) + ' ' + str(record[1]) + ' ' + '\t' + str(record[2]) + "\n"
+            print_rec += "video link :"+' '+ "\n"+ str(record[0]) + "\n"+ "browse path:" + ' ' + str(record[1]) + ' ' + '\t' + str(record[2]) + "\n"
         query_label = Label(top1, text=print_rec, font=("cambria", 12, "bold"), bg="royal blue3", fg="white")
         query_label.pack()
         Button(top1, text="Close", command=top1.destroy).pack()
@@ -474,8 +467,8 @@ if __name__ == "__main__":
     lab_0 = Label(h, text="OR", font=("Helvetica", 12, "bold"), bg="black", fg="royal blue3").place(x=241, y=190)
 
     # Creating a signup button
-    bu1 = Button(h, text="Sign-up", width=20, font=("Helvetica", 10, "bold", "italic"), command=regis).place(x=170,
+    bu1 = Button(h, text="Sign-up", width=20, font=("Helvetica", 10, "bold", "italic"), command=regis).place(x=170,y=225)
 
 
-                                                                                                             y=225)
+
 h.mainloop()
