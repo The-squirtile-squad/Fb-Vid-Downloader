@@ -261,7 +261,7 @@ def new():
         # Loop through the results
         print_rec = ""
         for record in rec:
-            print_rec += "video link:" + ' ' + "\n"+ str(record[0]) + ' ' +"\n"+  "browse path:" + ' ' + str(record[1]) + ' ' + '\t' + str(record[2]) + "\n"
+            print_rec += "video link:" + ' ' + str(record[0]) + '  ' +"\n"+  "browse path:" + ' ' + str(record[1]) + ' ' + '\t' + str(record[2]) + ' '+ "\n"+' '
         query_label = Label(top, text=print_rec, font=("cambria", 12, "bold"), bg="royal blue3", fg="white")
         query_label.pack()
         Button(top, text="Close", command=top.destroy).pack()
