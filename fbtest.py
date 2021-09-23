@@ -17,7 +17,7 @@ def test_valid_inputs():
     assert validate_input('AUniqueUserName', 'a_valid@email.yes', 'V@lid_p@ssw0rd')
 
 
-def test_invalid_username():
+def test_invalid_input():
     assert not validate_input('oopsie', 'a_valid@email.yes', 'V@lid_p@ssw0rd')
 
 
@@ -29,4 +29,4 @@ def input_value3():
 
 @pytest.mark.skip('https://www.facebook.com/watch/?ref=search&v=985324192028850&external_log_id=bec60ea0-7b76-4df2-9479-70940a5a68fd&q=rollin+down+in+the+deep')
 def test_link(input_value3):
-    print('I skipped the video link')
+    print('Skipped the video link')
