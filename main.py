@@ -319,7 +319,10 @@ def new():
     def edit():
         global editor
         editor = Toplevel()
-        editor.title("Update Info")
+        editor.title("Update Information")
+        editor.iconbitmap("fb.ico")
+        lab1 = Label(editor, image=photo)
+        lab1.pack()
         editor.maxsize(width=500, height=250)
         editor.minsize(width=500, height=250)
         # Connecting the database
@@ -334,8 +337,8 @@ def new():
         global f_editor
         global l_editor
 
-        label_1 = Label(editor, text="Update", bg="crimson", fg="black", width=29, font=("Helvetica", 20))
-        label_1.place(x=14, y=20)
+        label_1 = Label(editor, text="Update", bg="black", fg="royal blue", width=20, font=("Helvetica", 20, 'bold'))
+        label_1.place(x=70, y=20)
 
         # Creating text boxes
         f_editor = Entry(editor, width=40, font=("Helvetica", 11, "bold", "italic"), bg="LightCyan2", borderwidth=3)
@@ -344,10 +347,10 @@ def new():
         l_editor.place(x=125, y=150)
 
         # Creating textbox labels
-        f_lab = Label(editor, text="Video Link :", font=("Helvetica", 11, "bold"), bg="PeachPuff2", width=11,
+        f_lab = Label(editor, text="Video Link :", font=("Helvetica", 11, "bold"), bg="black", fg="royal blue2", width=11,
                       borderwidth=3)
         f_lab.place(x=10, y=94)
-        l_lab = Label(editor, text="Browse path :", font=("Helvetica", 11, "bold"), bg="PeachPuff2", width=11,
+        l_lab = Label(editor, text="Browse path :", font=("Helvetica", 11, "bold"), bg="black", fg="royal blue3", width=11,
                       borderwidth=3)
         l_lab.place(x=10, y=149)
 
@@ -356,7 +359,7 @@ def new():
             l_editor.insert(0, record[1])
 
         # Creating a save button
-        edit_btn = Button(editor, text="SAVE", font=("Helvetica", 10, "bold"), width=59, command=update)
+        edit_btn = Button(editor, text="SAVE", font=("Helvetica", 10, "bold"), bg="royal blue2", fg="snow", width=59, command=update)
         edit_btn.place(x=10, y=200)
 
         conn.commit()
