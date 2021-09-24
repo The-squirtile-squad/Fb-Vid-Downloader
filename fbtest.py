@@ -3,22 +3,22 @@ from fb3 import validate_input
 import pytest
 
 
-def test_vuvp():
-    # Checking valid username and valid password
-    assert check_credentials('oopsie', '30090')
-
-
-def test_iuvp():
+def test_vu():
     # Checking invalid username and valid password
-    assert check_credentials('ok', '30090')
+    assert check_credentials('hulk1', 'myshs')
+
+
+def test_iu():
+    # Checking valid username and valid password
+    assert check_credentials('hulk', 'iron')
 
 
 def test_valid_inputs():
-    assert validate_input('AUniqueUserName', 'a_valid@email.yes', 'V@lid_p@ssw0rd')
+    assert validate_input('hulk', 'a_valid$gmail.com')
 
 
 def test_invalid_input():
-    assert not validate_input('oopsie', 'a_valid@email.yes', 'V@lid_p@ssw0rd')
+    assert not validate_input('buster', 'jarvis@gmail.com')
 
 
 @pytest.fixture
